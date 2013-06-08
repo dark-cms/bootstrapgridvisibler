@@ -4,49 +4,32 @@ var bootstrapgridvisibler = {
     gridsize: 0
 }
 bootstrapgridvisibler.recreate = function () {
-for (si=0; si<bootstrapgridvisibler.sheets.length; si++){
-    var mysheet=sheets[si];
-    var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules
-    if(myrules != null) {
-        for (i=0; i<myrules.length; i++){
-            var crule = myrules[i].selectorText;
-            if(crule != null && crule != 'undefined') { 
-                if(crule.toLowerCase()==".span1"){ 
-                    bootstrapgridvisibler.spans[1] = true;
-                } else if(crule.toLowerCase()==".span2"){ 
-                    bootstrapgridvisibler.spans[2] = true;
-                } else if(crule.toLowerCase()==".span3"){ 
-                    bootstrapgridvisibler.spans[3] = true;
-                } else if(crule.toLowerCase()==".span4"){ 
-                    bootstrapgridvisibler.spans[4] = true;
-                } else if(crule.toLowerCase()==".span5"){ 
-                    bootstrapgridvisibler.spans[5] = true;
-                } else if(crule.toLowerCase()==".span6"){ 
-                    bootstrapgridvisibler.spans[6] = true;
-                } else if(crule.toLowerCase()==".span7"){ 
-                    bootstrapgridvisibler.spans[7] = true;
-                } else if(crule.toLowerCase()==".span8"){ 
-                    bootstrapgridvisibler.spans[8] = true;
-                } else if(crule.toLowerCase()==".span9"){ 
-                    bootstrapgridvisibler.spans[9] = true;
-                } else if(crule.toLowerCase()==".span10"){ 
-                    bootstrapgridvisibler.spans[10] = true;
-                } else if(crule.toLowerCase()==".span11"){ 
-                    bootstrapgridvisibler.spans[11] = true;
-                } else if(crule.toLowerCase()==".span12"){ 
-                    bootstrapgridvisibler.spans[12] = true;
+    for (si=0; si<this.sheets.length; si++){
+        var mysheet=sheets[si];
+        var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules
+        if(myrules != null) {
+            for (i=0; i<myrules.length; i++){
+                var crule = myrules[i].selectorText;
+                if(crule != null && crule != 'undefined') {
+                    crule = crule.toLowerCase();
+                    if(crule.substr(0, this.Cellname.length) == this.Cellname.toLowerCase()) {
+                        var toint = parseInt(crule.substr(this.Cellname.length));
+                        if(!isNaN(toint)) {
+                            this.spans[toint] = true;
+                            if(toint > this.gridsize) {
+                                this.gridsize = toint;
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-}
-for (var k in bootstrapgridvisibler.spans){
-    if (bootstrapgridvisibler.spans.hasOwnProperty(k)) {
-         if(bootstrapgridvisibler.spans[k] === true && parseInt(k) > bootstrapgridvisibler.gridsize) {
-              bootstrapgridvisibler.gridsize = parseInt(k);
-         }
+    for(var i = 1;i<= this.gridsize;i++) {
+        if (!this.spans.hasOwnProperty(i)) {
+             this.spans[i] = false;
+        }
     }
-}
 }
 bootstrapgridvisibler.removebyid = function(id) {
     if(elem=document.getElementById(id)) {
