@@ -3,7 +3,9 @@ bootstrapgridvisibler
 
 Display the Grid for Bootstrap CSS Framework.
 
-The bootstrapgridvisibler scans hardcoded for span1 upto span12, so this script can display lower spans too.
+> The bootstrapgridvisibler scans hardcoded for span1 upto span12, so this script can display lower spans too.
+
+Ok, today i have changed this, now he scans for .span## and you cann use it with 12+grids
 
 It is tested in Chrome 27.0.1453.110 m and written in pure Javascript.
 
