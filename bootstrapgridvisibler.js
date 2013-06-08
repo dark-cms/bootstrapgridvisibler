@@ -5,7 +5,7 @@ var bootstrapgridvisibler = {
 }
 bootstrapgridvisibler.recreate = function () {
     for (si=0; si<this.sheets.length; si++){
-        var mysheet=sheets[si];
+        var mysheet=this.sheets[si];
         var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules
         if(myrules != null) {
             for (i=0; i<myrules.length; i++){
