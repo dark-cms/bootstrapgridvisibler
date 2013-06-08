@@ -122,8 +122,8 @@ bootstrapgridvisibler.creategrid = function(id) {
          }
     }
 }
-var css = '#bootstrapgridwrapper { position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(230,232,250,0.4);z-index:5000; }';
-css += '#bootstrapgridsetup { position:fixed;top:0;left:0;width: 150px;background-color:rgba(230,232,250,0.4);z-index:5001; }';
+var css = '#bootstrapgridwrapper { position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(230,232,250,0.4);z-index:10001; }';
+css += '#bootstrapgridsetup { position:fixed;top:0;left:0;width: 150px;background-color:rgba(230,232,250,0.4);z-index:10002; }';
 css += '#bootstrapgridwrapper > .container { height:100%}';
 css += '#bootstrapgridwrapper > .container > .row { height:100%;display: none; background-color: rgba(255,255,255,0.4)}';
 css += '#bootstrapgridwrapper > .container > .active { display: block !important }';
