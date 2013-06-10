@@ -36,8 +36,24 @@ but closegrid() will do this by itself)
 bootstrapgridvisibler.creategrid();
 ---------------------------------
 will display the grid and shows a basic Buttonbox on top left;
-
 on ButtonClick you can see some Span-Combinations.
+
+
+New bootstrapgridvisibler.add();
+---------------------------------
+To add own Buttons with Rowsetup
+```javascript
+     $(document).ready(function(){
+        mygrid = {
+            'Startseite Content': [9,3],
+            'Startseite unsere...': [4,4,4],
+            'Footer': [3,3,3,3]
+            };
+        bootstrapgridvisibler.add(mygrid);
+        bootstrapgridvisibler.closegrid();    
+    });
+```
+
 
 
 bootstrapgridvisibler is fully alpha
