@@ -12,22 +12,42 @@ bootstrapgridvisibler.add = function (m) {
         this.MyGrids = m;
     }
 }
+bootstrapgridvisibler.sameOrigin = function(url) {
+    if(url == null ) {
+        return true;
+    }
+    var current = window.location.hostname;
+    var prefix = /^https?:\/\//;
+    var domain = /^[^\/]+/;
+    // remove any prefix
+    url = url.replace(prefix, "");
+    if (url.charAt(0) === "/") {
+        return true;
+    }
+    var match = url.match(domain);
+    if (match) {
+        return(match[0] == current);
+    }
+    return false;
+}
 bootstrapgridvisibler.recreate = function () {
     for (si=0; si<this.sheets.length; si++){
         var mysheet=this.sheets.item(si);
-        var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules
-
-        if(myrules != null) {
-             for (i=0; i<myrules.length; i++){
-                 var crule = myrules[i].selectorText;
-                if(crule != null && crule != 'undefined') {
-                    crule = crule.toLowerCase();
-                    if(crule.substr(0, this.Cellname.length) == this.Cellname.toLowerCase()) {
-                        var toint = parseInt(crule.substr(this.Cellname.length));
-                        if(!isNaN(toint)) {
-                            this.spans[toint] = true;
-                            if(toint > this.gridsize) {
-                                this.gridsize = toint;
+        // sameOrigin sucks
+        if(this.sameOrigin(mysheet.href)) {
+            var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules
+            if(myrules != null) {
+                for (i=0; i<myrules.length; i++){
+                    var crule = myrules[i].selectorText;
+                    if(crule != null && crule != 'undefined') {
+                        crule = crule.toLowerCase();
+                        if(crule.substr(0, this.Cellname.length) == this.Cellname.toLowerCase()) {
+                            var toint = parseInt(crule.substr(this.Cellname.length));
+                            if(!isNaN(toint)) {
+                                this.spans[toint] = true;
+                                if(toint > this.gridsize) {
+                                    this.gridsize = toint;
+                                }
                             }
                         }
                     }
