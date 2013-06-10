@@ -12,8 +12,8 @@ bootstrapgridvisibler.recreate = function () {
         var myrules= mysheet.cssRules? mysheet.cssRules: mysheet.rules;
         console.log(myrules);
         if(myrules) {
-            for (i=0; i<myrules.length; i++){
-                var crule = myrules[i].selectorText;
+            for (i=0; i<mysheet.length; i++){
+                var crule = mysheet.item(i).selectorText;
                 if(crule != null && crule != 'undefined') {
                     crule = crule.toLowerCase();
                     if(crule.substr(0, this.Cellname.length) == this.Cellname.toLowerCase()) {
