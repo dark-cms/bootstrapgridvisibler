@@ -8,7 +8,8 @@ var bootstrapgridvisibler = {
 }
 bootstrapgridvisibler.recreate = function () {
     for (si=0; si<this.sheets.length; si++){
-        var myrules=this.sheets.item(si) || false;
+        var mysheet=this.sheets.item(si);
+        var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules
         console.log(myrules);
         if(myrules != false) {
             for (i=0; i<myrules.length; i++){
