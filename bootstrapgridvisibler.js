@@ -9,9 +9,9 @@ var bootstrapgridvisibler = {
 bootstrapgridvisibler.recreate = function () {
     for (si=0; si<this.sheets.length; si++){
         var mysheet=this.sheets.item(si);
-        var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules
+        var myrules= mysheet.cssRules? mysheet.cssRules: mysheet.rules;
         console.log(myrules);
-        if(myrules != false) {
+        if(myrules) {
             for (i=0; i<myrules.length; i++){
                 var crule = myrules[i].selectorText;
                 if(crule != null && crule != 'undefined') {
