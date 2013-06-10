@@ -5,6 +5,12 @@ var bootstrapgridvisibler = {
     Cellname: '.span',
     Rowname: '.row',
     Containername: '.container',
+    MyGrids: {}
+}
+bootstrapgridvisibler.add = function (m) {
+    if(typeof m == 'object') {
+        this.MyGrids = m;
+    }
 }
 bootstrapgridvisibler.recreate = function () {
     for (si=0; si<this.sheets.length; si++){
@@ -88,6 +94,36 @@ bootstrapgridvisibler.creategrid = function(id) {
     container.className='container';
     wrapper.appendChild(container);
     var first = true;
+    if(typeof this.MyGrids == 'object') {
+        for (var k in this.MyGrids){
+            if (this.MyGrids.hasOwnProperty(k)) {
+                var row = document.createElement("div");
+                row.className = 'row';
+                var setupbutton = document.createElement("button");
+                setupbutton.innerHTML = k;
+                setupbutton.className = 'with'+k.replace(/[^a-zA-Z]/,'');
+                setupbutton.onclick=function(e){
+                    var old = document.getElementById('bootstrapgridwrapper').getElementsByClassName('active');
+                    for(var i = 0, n = old.length;i<n;i++) {
+                        old[i].className = "row";
+                    }
+                    document.getElementById(this.className).className = "row active";
+                };
+                setter.appendChild(setupbutton);
+                if(first) {
+                    row.className += ' active';
+                    first = false;
+                }
+                row.id = 'with'+k.replace(/[^a-zA-Z]/,'');
+                for (var i = 0,n = this.MyGrids[k].length;i<n;i++) {
+                    var rowspan = document.createElement("div");
+                    rowspan.className = 'span'+this.MyGrids[k][i];
+                    row.appendChild(rowspan);
+                }
+                container.appendChild(row);
+            }
+        }
+    }
     for (var k in bootstrapgridvisibler.spans){
         if (bootstrapgridvisibler.spans.hasOwnProperty(k)) {
          if(bootstrapgridvisibler.spans[k] === true) {
