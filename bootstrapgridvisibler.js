@@ -9,6 +9,7 @@ var bootstrapgridvisibler = {
 bootstrapgridvisibler.recreate = function () {
     for (si=0; si<this.sheets.length; si++){
         var myrules=this.sheets.item(si) || false;
+        console.log(myrules);
         if(myrules != false) {
             for (i=0; i<myrules.length; i++){
                 var crule = myrules[i].selectorText;
