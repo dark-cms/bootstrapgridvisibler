@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Bootstrapgridvisibler by dark-cms</title>
+    <title>Bootstrap Gridvisibler by dark-cms</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">Bootstrapgridvisibler</h1>
+        <h1 class="header">Bootstrap Gridvisibler</h1>
         <p class="header">Display the Grid for Bootstrap CSS Framework</p>
 
         <ul>
@@ -33,13 +33,16 @@
         <h1>
 <a name="bootstrapgridvisibler" class="anchor" href="#bootstrapgridvisibler"><span class="octicon octicon-link"></span></a>bootstrapgridvisibler</h1>
 
+<h1></h1>
+
 <p>Display the Grid for Bootstrap CSS Framework.</p>
 
 <blockquote>
-<p>The bootstrapgridvisibler scans hardcoded for span1 upto span12, so this script can display lower spans too.</p>
+<p>The bootstrapgridvisibler scans hardcoded for span1 upto span12, 
+so this script can display lower spans too.</p>
 </blockquote>
 
-<p>Ok, today i have changed this, now he scans for .span## and you cann use it with 12+grids</p>
+<p><strong>Ok, today i have changed this, now he scans for .span## and you cann use it with 12+grids</strong></p>
 
 <p>It is tested in Chrome 27.0.1453.110 m and written in pure Javascript.</p>
 
@@ -59,25 +62,40 @@
 <h2>
 <a name="bootstrapgridvisiblerclosegrid" class="anchor" href="#bootstrapgridvisiblerclosegrid"><span class="octicon octicon-link"></span></a>bootstrapgridvisibler.closegrid();</h2>
 
-<p>Calls bootstrapgridvisibler.recreate(); and will display a box on top left with a button to show the grid</p>
+<hr><p>Calls bootstrapgridvisibler.recreate(); and will display a box on top left with a button to show the grid</p>
 
 <h2>
 <a name="bootstrapgridvisiblerrecreate" class="anchor" href="#bootstrapgridvisiblerrecreate"><span class="octicon octicon-link"></span></a>bootstrapgridvisibler.recreate();</h2>
 
-<p>Will check your stylesheets for your .span##-Styles (with dynamic stylesheets you need to call this function, 
+<hr><p>Will check your stylesheets for your .span##-Styles (with dynamic stylesheets you need to call this function, 
 but closegrid() will do this by itself)</p>
 
 <h2>
 <a name="bootstrapgridvisiblercreategrid" class="anchor" href="#bootstrapgridvisiblercreategrid"><span class="octicon octicon-link"></span></a>bootstrapgridvisibler.creategrid();</h2>
 
-<p>will display the grid and shows a basic Buttonbox on top left;</p>
+<hr><p>will display the grid and shows a basic Buttonbox on top left;
+on ButtonClick you can see some Span-Combinations.</p>
 
-<p>on ButtonClick you can see some Span-Combinations.</p>
+<h2>
+<a name="new-bootstrapgridvisibleradd" class="anchor" href="#new-bootstrapgridvisibleradd"><span class="octicon octicon-link"></span></a>New bootstrapgridvisibler.add();</h2>
 
-<h1>
-<a name="bootstrapgridvisibler-is-fully-alpha" class="anchor" href="#bootstrapgridvisibler-is-fully-alpha"><span class="octicon octicon-link"></span></a>bootstrapgridvisibler is fully alpha</h1>
+<hr><p>To add own Buttons with Rowsetup</p>
 
-<p>i have written the script without any speeduptests or clean code because i dont think to use it more than needed.</p>
+<div class="highlight"><pre>     <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">mygrid</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">'Startseite Content'</span><span class="o">:</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+            <span class="s1">'Startseite unsere...'</span><span class="o">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+            <span class="s1">'Footer'</span><span class="o">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+            <span class="p">};</span>
+        <span class="nx">bootstrapgridvisibler</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">mygrid</span><span class="p">);</span>
+        <span class="nx">bootstrapgridvisibler</span><span class="p">.</span><span class="nx">closegrid</span><span class="p">();</span>    
+    <span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="bootstrapgridvisibler-is-fully-alpha" class="anchor" href="#bootstrapgridvisibler-is-fully-alpha"><span class="octicon octicon-link"></span></a>bootstrapgridvisibler is fully alpha</h2>
+
+<hr><p>i have written the script without any speeduptests or clean code because i dont think to use it more than needed.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
